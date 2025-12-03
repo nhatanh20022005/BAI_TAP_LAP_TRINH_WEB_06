@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<main layout:fragment="content">
+
+<h3>Danh sách Category</h3>
+
+<a href="/categories/create" class="btn btn-primary mb-2">Thêm mới</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Hành động</th>
+    </tr>
+
+    <tr th:each="c : ${categories}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+        <td>
+            <a th:href="@{'/categories/edit/' + ${c.id}}">Sửa</a> |
+            <a th:href="@{'/categories/delete/' + ${c.id}}">Xóa</a>
+        </td>
+    </tr>
+</table>
+
+</main>
+</html>

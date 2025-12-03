@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<main layout:fragment="content">
+
+	<h3
+		th:text="${category.id != null ? 'Cập nhật Category' : 'Thêm Category'}"></h3>
+
+	<form th:action="@{/categories/save}" th:object="${category}"
+		method="post">
+
+		<input type="hidden" th:field="*{id}" />
+
+		<div class="mb-3">
+			<label>Tên Category</label> <input class="form-control"
+				th:field="*{name}" />
+		</div>
+
+		<button class="btn btn-success" type="submit">Lưu</button>
+		<a class="btn btn-secondary" href="/categories">Quay lại</a>
+	</form>
+
+</main>
+</html>
